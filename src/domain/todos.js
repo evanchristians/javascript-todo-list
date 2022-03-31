@@ -14,17 +14,17 @@ export const get = () => {
   return Storage.get(TODOS);
 };
 
-export const getOne = (id) => {
+export const getOne = id => {
   initialize();
 
-  const todo = Storage.get(TODOS).find((t) => t.id == id);
+  const todo = Storage.get(TODOS).find(t => t.id == id);
 
   if (!todo) throw new Error(`Error: Todo (${id}) Not Found!`);
 
   return todo;
 };
 
-export const add = (todo) => {
+export const add = todo => {
   initialize();
 
   Storage.append(TODOS, {
@@ -37,18 +37,18 @@ export const update = (id, values, merge = true) => {
   const todo = getOne(id);
 
   const updated = merge
-    ? { ...todo, ...values, id }
+    ? {...todo, ...values, id}
     : {
         ...values,
         id,
       };
 
-  const todos = get().map((t) => (t.id == id ? updated : t));
+  const todos = get().map(t => (t.id == id ? updated : t));
 
   Storage.set(TODOS, todos);
 };
 
-export const remove = (id) => {
+export const remove = id => {
   const todos = Storage.get(TODOS);
 
   if (!todos) return;

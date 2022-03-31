@@ -7,7 +7,7 @@ export const append = (storageKey, value) => {
 
 export const remove = (storageKey, id) => {
   const arr = JSON.parse(localStorage.getItem(storageKey));
-  const removed = JSON.stringify(arr.filter((x) => x.id != id));
+  const removed = JSON.stringify(arr.filter(x => x.id != id));
 
   localStorage.setItem(storageKey, removed);
 };
@@ -16,4 +16,4 @@ export const set = (storageKey, value) => {
   localStorage.setItem(storageKey, JSON.stringify(value));
 };
 
-export const get = (storageKey) => JSON.parse(localStorage.getItem(storageKey));
+export const get = storageKey => JSON.parse(localStorage.getItem(storageKey));
