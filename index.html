@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        font-size: 14px;
+      }
+
+      button,
+      input,
+      body {
+        font-family: monospace;
+      }
+
+      #todo-list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        list-style-type: disc;
+        padding: 0;
+      }
+
+      #todo-list > li {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        border: 1px solid #0000002f;
+        padding: 0.5rem 1rem;
+      }
+
+      .done::before {
+        content: "✅ (done)";
+      }
+
+      .pending::before {
+        content: "🛠 (pending)";
+      }
+
+      .todo::before {
+        content: "⌛ (todo)";
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section>
+        <form id="todo-form">
+          <input type="text" name="text" id="todo-input" />
+          <button type="submit">add</button>
+        </form>
+        <div>
+          <ul id="todo-list"></ul>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./src/main.js" defer></script>
+  </body>
+</html>
